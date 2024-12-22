@@ -1,0 +1,48 @@
+name: Automate Model Development
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  train_model:
+    runs-on: ubuntu-latest  # Use the latest Ubuntu runner
+
+    steps:
+    # Checkout the code from the repository
+    - name: Checkout Code
+      uses: actions/checkout@v3
+
+    # Set up Python environment
+    - name: Set up Python 3.8
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.8'
+
+    # Install dependencies from requirements.txt
+    - name: Install Dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    # Convert Jupyter Notebook to Python script (if using .ipynb)
+    - name: Convert Notebook to Python (if using .ipynb)
+      run: |
+        pip install nbconvert
+        jupyter nbconvert --to script ImageClassification.ipynb
+
+    # Run training script (assuming `train.py` is your main script)
+    - name: Run Training
+      run: |
+        python ImageClassification.py  # Run your training script here
+
+    # Save trained model as a GitHub artifact
+    - name: Upload Model Artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: trained-model
+        path: model/  # Adjust this path to your model directory

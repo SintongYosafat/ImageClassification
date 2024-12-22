@@ -29,12 +29,17 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      # 4. Jalankan script pelatihan model
+      # 4. Login ke WandB menggunakan API key dari Secrets
+      - name: Login to WandB
+        run: |
+          echo "WANDB_API_KEY=${{ secrets.WANDB_API_KEY }}" > ~/.netrc  # Login otomatis ke WandB
+
+      # 5. Jalankan script pelatihan model
       - name: Run Training Script
         run: |
-          python Train.py  # Jalankan script pelatihan model di sini
+          python train.py  # Jalankan script pelatihan model di sini
 
-      # 5. Upload model yang telah dilatih sebagai GitHub Artifact
+      # 6. Upload model yang telah dilatih sebagai GitHub Artifact
       - name: Upload Trained Model Artifact
         uses: actions/upload-artifact@v3
         with:

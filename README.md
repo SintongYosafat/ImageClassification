@@ -126,7 +126,7 @@ Follow these steps to reproduce the training process:
 ```plaintext
 .
 ├── ImageClassification.ipynb  # Jupyter notebook for training and evaluation
-├── train.py                   # Python script for training
+├── Train.py                   # Python script for training
 ├── requirements.txt           # Required dependencies
 ├── README.md                  # Documentation
 ```

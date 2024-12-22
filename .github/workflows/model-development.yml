@@ -33,6 +33,11 @@ jobs:
     - name: Create model directory
       run: mkdir -p models/resnet18
 
+    # Login ke WandB dengan API Key
+    - name: WandB Login
+      run: |
+        echo "$WANDB_API_KEY" | wandb login
+
     # Run training script (asumsi script pelatihan Anda bernama Train.py)
     - name: Run Training
       run: |

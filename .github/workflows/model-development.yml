@@ -32,7 +32,7 @@ jobs:
       # 4. Jalankan script pelatihan model
       - name: Run Training Script
         run: |
-          python train.py  # Jalankan script pelatihan model di sini
+          python Train.py  # Jalankan script pelatihan model di sini
 
       # 5. Upload model yang telah dilatih sebagai GitHub Artifact
       - name: Upload Trained Model Artifact

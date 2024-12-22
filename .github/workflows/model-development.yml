@@ -29,12 +29,6 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
 
-    # Convert Jupyter Notebook ke Python script (jika menggunakan .ipynb)
-    - name: Convert Notebook to Python (if using .ipynb)
-      run: |
-        pip install nbconvert
-        jupyter nbconvert --to script ImageClassification.ipynb
-
     # Buat folder models/resnet18 jika belum ada
     - name: Create model directory
       run: mkdir -p models/resnet18
@@ -49,4 +43,4 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: trained-model
-        path: models/resnet18/
+        path: models/resnet18/  # Path folder model yang telah dibuat

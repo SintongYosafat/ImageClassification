@@ -38,7 +38,7 @@ jobs:
     # Run training script (assuming `train.py` is your main script)
     - name: Run Training
       run: |
-        python ImageClassification.py  # Run your training script here
+        python train.py  # Run your training script here
 
     # Save trained model as a GitHub artifact
     - name: Upload Model Artifact

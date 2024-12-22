@@ -125,10 +125,10 @@ Follow these steps to reproduce the training process:
 
 ```plaintext
 .
-├── TrashNet_Training.ipynb  # Jupyter notebook for training and evaluation
-├── train.py                 # Python script for training
-├── requirements.txt         # Required dependencies
-├── README.md                # Documentation
+├── ImageClassification.ipynb  # Jupyter notebook for training and evaluation
+├── train.py                   # Python script for training
+├── requirements.txt           # Required dependencies
+├── README.md                  # Documentation
 ```
 
 ---
